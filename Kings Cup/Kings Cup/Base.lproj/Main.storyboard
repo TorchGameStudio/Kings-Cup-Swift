@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ml8-cw-ZuL">
+    <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="XGO-ad-7Am">
+            <objects>
+                <viewController id="Ml8-cw-ZuL" customClass="SplashViewController" customModule="Kings_Cup" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yVV-Yl-eMp"/>
+                        <viewControllerLayoutGuide type="bottom" id="muf-YF-GwH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lCS-sd-tUk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="sgA-0L-QOL">
+                                <rect key="frame" x="20" y="20" width="280" height="440"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sgA-0L-QOL" firstAttribute="top" secondItem="yVV-Yl-eMp" secondAttribute="bottom" id="2kl-Jh-veE"/>
+                            <constraint firstAttribute="bottom" secondItem="sgA-0L-QOL" secondAttribute="bottom" constant="20" symbolic="YES" id="46N-6w-2JY"/>
+                            <constraint firstItem="sgA-0L-QOL" firstAttribute="leading" secondItem="lCS-sd-tUk" secondAttribute="leadingMargin" constant="4" id="Ksl-0x-Wsb"/>
+                            <constraint firstItem="sgA-0L-QOL" firstAttribute="centerX" secondItem="lCS-sd-tUk" secondAttribute="centerX" id="kW2-K2-f57"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="logo" destination="sgA-0L-QOL" id="FaO-hy-WMW"/>
+                        <segue destination="PHi-We-Tyu" kind="show" identifier="ShowMenu" id="gVK-li-Fjn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NEn-BZ-PHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-356" y="137"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TSa-Zw-tK6">
+            <objects>
+                <viewController id="PHi-We-Tyu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oyE-9E-ME8"/>
+                        <viewControllerLayoutGuide type="bottom" id="cgn-AR-uYM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oSy-JE-8pj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card" translatesAutoresizingMaskIntoConstraints="NO" id="bd4-Ny-dNg">
+                                <rect key="frame" x="21" y="0.0" width="278" height="480"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="bd4-Ny-dNg" secondAttribute="trailing" constant="5" id="7K8-r7-e1w"/>
+                            <constraint firstAttribute="centerY" secondItem="bd4-Ny-dNg" secondAttribute="centerY" id="8wk-wB-ETS"/>
+                            <constraint firstAttribute="centerX" secondItem="bd4-Ny-dNg" secondAttribute="centerX" id="ZX0-du-gxr"/>
+                            <constraint firstItem="cgn-AR-uYM" firstAttribute="top" secondItem="bd4-Ny-dNg" secondAttribute="bottom" id="Zsu-Sk-O1O"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <segue destination="LVB-YS-i5n" kind="showDetail" identifier="ShowGame" id="h1l-KZ-Vb7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j6I-O8-KJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="67" y="137"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="CtS-rA-C9T">
+            <objects>
+                <viewController id="LVB-YS-i5n" customClass="GameViewController" customModule="Kings_Cup" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PCf-gQ-wO7"/>
+                        <viewControllerLayoutGuide type="bottom" id="b3d-qh-BLL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bdc-N1-crn" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="485" y="137"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Card" width="320" height="480"/>
+        <image name="Logo" width="1146" height="1095"/>
+    </resources>
+</document>
