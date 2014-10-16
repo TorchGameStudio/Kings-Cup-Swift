@@ -11,9 +11,17 @@ import SpriteKit
 
 class MenuViewController: UIViewController {
     
+    @IBOutlet var playButton: UIButton!
+    @IBOutlet var rulesButton: UIButton!
+    
+    @IBAction func playButtonTapped() {
+     
+        self.performSegueWithIdentifier("ShowGame", sender: nil)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func shouldAutorotate() -> Bool {

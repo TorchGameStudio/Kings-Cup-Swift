@@ -63,8 +63,8 @@
 		086DCB8019EE25120033037A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				08B7431119E0E06B00FE6788 /* GameViewController.swift */,
 				086DCB8319EE258E0033037A /* SplashViewController.swift */,
+				08B7431119E0E06B00FE6788 /* GameViewController.swift */,
 				086DCB8519EE25A40033037A /* MenuViewController.swift */,
 			);
 			name = "View Controllers";
@@ -362,7 +362,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Kings Cup/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -374,7 +374,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Kings Cup/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

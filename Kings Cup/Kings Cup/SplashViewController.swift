@@ -18,13 +18,13 @@ class SplashViewController: UIViewController {
         
         logo.alpha = 0;
         
-        UIView.animateWithDuration(0.7, delay: 0.0, options: .CurveEaseOut, animations: {
+        UIView.animateWithDuration(1.5, delay: 0.0, options: .CurveEaseOut, animations: {
             
             self.logo.alpha = 1
             
-            }, completion: { finished in
+        }, completion: { finished in
                 
-                self.goToMainMenuAfterDelay(2.0)
+            self.goToMainMenuAfterDelay(4.0)
                 
         })
     }
