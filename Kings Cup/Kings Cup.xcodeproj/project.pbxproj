@@ -15,6 +15,10 @@
 		08B7431519E0E06B00FE6788 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08B7431319E0E06B00FE6788 /* Main.storyboard */; };
 		08B7431719E0E06B00FE6788 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08B7431619E0E06B00FE6788 /* Images.xcassets */; };
 		08B7432619E0E06B00FE6788 /* Kings_CupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B7432519E0E06B00FE6788 /* Kings_CupTests.swift */; };
+		A26AB46819F166C600EC04AE /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AB46719F166C600EC04AE /* Deck.swift */; };
+		A26AB46A19F166D200EC04AE /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AB46919F166D200EC04AE /* Card.swift */; };
+		A26AB46D19F1A26F00EC04AE /* Deck.atlas in Resources */ = {isa = PBXBuildFile; fileRef = A26AB46C19F1A26F00EC04AE /* Deck.atlas */; };
+		A2B6E2B019F7045F006F2586 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B6E2AF19F7045F006F2586 /* Contants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,10 @@
 		08B7431F19E0E06B00FE6788 /* Kings CupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kings CupTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08B7432419E0E06B00FE6788 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08B7432519E0E06B00FE6788 /* Kings_CupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kings_CupTests.swift; sourceTree = "<group>"; };
+		A26AB46719F166C600EC04AE /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		A26AB46919F166D200EC04AE /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		A26AB46C19F1A26F00EC04AE /* Deck.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Deck.atlas; sourceTree = "<group>"; };
+		A2B6E2AF19F7045F006F2586 /* Contants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +83,6 @@
 			children = (
 				08B7430B19E0E06B00FE6788 /* AppDelegate.swift */,
 				08B7431319E0E06B00FE6788 /* Main.storyboard */,
-				08B7431619E0E06B00FE6788 /* Images.xcassets */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -112,6 +119,7 @@
 				086DCB8119EE25280033037A /* App */,
 				086DCB8219EE253C0033037A /* Scenes */,
 				086DCB8019EE25120033037A /* View Controllers */,
+				A26AB46619F164DF00EC04AE /* Classes */,
 				08B7430919E0E06B00FE6788 /* Supporting Files */,
 			);
 			path = "Kings Cup";
@@ -120,6 +128,7 @@
 		08B7430919E0E06B00FE6788 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A26AB46B19F1A24700EC04AE /* Assets */,
 				08B7430A19E0E06B00FE6788 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -140,6 +149,25 @@
 				08B7432419E0E06B00FE6788 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A26AB46619F164DF00EC04AE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A26AB46719F166C600EC04AE /* Deck.swift */,
+				A26AB46919F166D200EC04AE /* Card.swift */,
+				A2B6E2AF19F7045F006F2586 /* Contants.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		A26AB46B19F1A24700EC04AE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A26AB46C19F1A26F00EC04AE /* Deck.atlas */,
+				08B7431619E0E06B00FE6788 /* Images.xcassets */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +252,7 @@
 			files = (
 				08B7431719E0E06B00FE6788 /* Images.xcassets in Resources */,
 				08B7431519E0E06B00FE6788 /* Main.storyboard in Resources */,
+				A26AB46D19F1A26F00EC04AE /* Deck.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A26AB46819F166C600EC04AE /* Deck.swift in Sources */,
 				08B7431019E0E06B00FE6788 /* GameScene.swift in Sources */,
+				A26AB46A19F166D200EC04AE /* Card.swift in Sources */,
+				A2B6E2B019F7045F006F2586 /* Contants.swift in Sources */,
 				086DCB8619EE25A40033037A /* MenuViewController.swift in Sources */,
 				08B7431219E0E06B00FE6788 /* GameViewController.swift in Sources */,
 				08B7430C19E0E06B00FE6788 /* AppDelegate.swift in Sources */,

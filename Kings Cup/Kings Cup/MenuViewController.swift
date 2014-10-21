@@ -30,7 +30,7 @@ class MenuViewController: UIViewController {
     
     override func supportedInterfaceOrientations() -> Int {
         
-        return Int(UIInterfaceOrientationMask.Portrait.toRaw());
+        return Int(UIInterfaceOrientationMask.Portrait.toRaw())
     }
     
     override func didReceiveMemoryWarning() {

@@ -16,7 +16,7 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        logo.alpha = 0;
+        logo.alpha = 0
         
         UIView.animateWithDuration(1.5, delay: 0.0, options: .CurveEaseOut, animations: {
             
@@ -41,7 +41,7 @@ class SplashViewController: UIViewController {
     
     override func supportedInterfaceOrientations() -> Int {
         
-        return Int(UIInterfaceOrientationMask.Portrait.toRaw());
+        return Int(UIInterfaceOrientationMask.Portrait.toRaw())
     }
     
     override func didReceiveMemoryWarning() {
