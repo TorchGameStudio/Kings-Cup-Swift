@@ -12,7 +12,7 @@ class GameScene: SKScene {
   
     // MARK: Variables
   
-    var deck:Deck
+    var deck:Deck = Deck()
   
     // MARK: Methods
   
@@ -21,30 +21,15 @@ class GameScene: SKScene {
     }
   
     override init(size: CGSize) {
-      deck = Deck()
-      
       super.init(size: size)
-      
-      self.addChild(deck)
     }
   
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
       
+        view.addSubview(deck)
         self.backgroundColor = UIColor.whiteColor()
-      
     }
-    
-//    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-//        /* Called when a touch begins */
-//        
-//        for touch: AnyObject in touches {
-//            let location = touch.locationInNode(self)
-//            
-//            //let sprite = SKSpriteNode(imageNamed:"Spaceship")
-//          
-//        }
-//    }
   
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
