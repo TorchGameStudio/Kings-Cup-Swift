@@ -18,6 +18,10 @@
 		A26AB46819F166C600EC04AE /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AB46719F166C600EC04AE /* Deck.swift */; };
 		A2B6E2B019F7045F006F2586 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B6E2AF19F7045F006F2586 /* Contants.swift */; };
 		A2B6E2E319F84E59006F2586 /* Deck in Resources */ = {isa = PBXBuildFile; fileRef = A2B6E2E219F84E59006F2586 /* Deck */; };
+		A2B6E2FB19F9769D006F2586 /* Cards in Resources */ = {isa = PBXBuildFile; fileRef = A2B6E2FA19F9769D006F2586 /* Cards */; };
+		A2B6E2FE19F996DF006F2586 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2B6E2FC19F996DF006F2586 /* Model.xcdatamodeld */; };
+		A2B6E30019F998A3006F2586 /* RuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B6E2FF19F998A3006F2586 /* RuleManager.swift */; };
+		A2B6E30219F99F80006F2586 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B6E30119F99F80006F2586 /* Rule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		A26AB46719F166C600EC04AE /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		A2B6E2AF19F7045F006F2586 /* Contants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
 		A2B6E2E219F84E59006F2586 /* Deck */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Deck; sourceTree = "<group>"; };
+		A2B6E2FA19F9769D006F2586 /* Cards */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Cards; sourceTree = "<group>"; };
+		A2B6E2FD19F996DF006F2586 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		A2B6E2FF19F998A3006F2586 /* RuleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleManager.swift; sourceTree = "<group>"; };
+		A2B6E30119F99F80006F2586 /* Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 			children = (
 				08B7430B19E0E06B00FE6788 /* AppDelegate.swift */,
 				08B7431319E0E06B00FE6788 /* Main.storyboard */,
+				A2B6E2FC19F996DF006F2586 /* Model.xcdatamodeld */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -152,8 +161,10 @@
 		A26AB46619F164DF00EC04AE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A2B6E30119F99F80006F2586 /* Rule.swift */,
 				A26AB46719F166C600EC04AE /* Deck.swift */,
 				A2B6E2AF19F7045F006F2586 /* Contants.swift */,
+				A2B6E2FF19F998A3006F2586 /* RuleManager.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -161,6 +172,7 @@
 		A26AB46B19F1A24700EC04AE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A2B6E2FA19F9769D006F2586 /* Cards */,
 				A2B6E2E219F84E59006F2586 /* Deck */,
 				08B7431619E0E06B00FE6788 /* Images.xcassets */,
 			);
@@ -249,6 +261,7 @@
 			files = (
 				08B7431719E0E06B00FE6788 /* Images.xcassets in Resources */,
 				A2B6E2E319F84E59006F2586 /* Deck in Resources */,
+				A2B6E2FB19F9769D006F2586 /* Cards in Resources */,
 				08B7431519E0E06B00FE6788 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,10 +281,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A26AB46819F166C600EC04AE /* Deck.swift in Sources */,
+				A2B6E30219F99F80006F2586 /* Rule.swift in Sources */,
 				08B7431019E0E06B00FE6788 /* GameScene.swift in Sources */,
 				A2B6E2B019F7045F006F2586 /* Contants.swift in Sources */,
+				A2B6E2FE19F996DF006F2586 /* Model.xcdatamodeld in Sources */,
 				086DCB8619EE25A40033037A /* MenuViewController.swift in Sources */,
 				08B7431219E0E06B00FE6788 /* GameViewController.swift in Sources */,
+				A2B6E30019F998A3006F2586 /* RuleManager.swift in Sources */,
 				08B7430C19E0E06B00FE6788 /* AppDelegate.swift in Sources */,
 				086DCB8419EE258E0033037A /* SplashViewController.swift in Sources */,
 			);
@@ -473,6 +489,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A2B6E2FC19F996DF006F2586 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A2B6E2FD19F996DF006F2586 /* Model.xcdatamodel */,
+			);
+			currentVersion = A2B6E2FD19F996DF006F2586 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 08B742FE19E0E06B00FE6788 /* Project object */;
 }

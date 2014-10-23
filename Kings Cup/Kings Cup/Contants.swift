@@ -16,15 +16,21 @@ enum Suits {
 }
 
 let screenSize = UIScreen.mainScreen().bounds.size
-let cardSize = CGSize(width: screenSize.width/1.3, height: screenSize.height/1.5)
+let cardSize = CGSize(width: screenSize.width/1.8, height: screenSize.height/1.8)
 
 let deckImages = 6
 let deckSize = 52
 let cardsPerSuit = 13
 
+let rulesOverlaySize = CGSize(width: screenSize.width, height: cardSize.height/2)
+let rulesOverlayAlpha:CGFloat = 0.9
+let ruleNameFontSize:CGFloat = 15
+
 // NOTIFICATIONS
 
 let CardFlippedNotification = "CardFlippedNotification"
+
+// EXTENSIONS
 
 extension UIView {
   
@@ -51,5 +57,9 @@ extension UIView {
     frame.origin.y = y
     self.frame = frame
   }
+  
+}
+
+extension Rule {
   
 }
