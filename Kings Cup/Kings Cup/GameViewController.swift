@@ -11,23 +11,25 @@ import SpriteKit
 
 class GameViewController: UIViewController {
   
+    ///--------------------------------------------------
+    ///
+    /// // MARK: - Variables
+    ///
+    ///--------------------------------------------------
+  
+    @IBOutlet var deck:Deck!
+    @IBOutlet var ruleOverlay:UIView!
+    @IBOutlet var ruleName:UITextView!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-      if let scene = GameScene.sceneWithSize(view.bounds.size) {
-        // Configure the view.
-        let skView = self.view as SKView
-      
-        skView.showsFPS = true
-            
-        /* Sprite Kit applies additional optimizations to improve rendering performance */
-        skView.ignoresSiblingOrder = true
-        
-        /* Set the scale mode to scale to fit the window */
-        scene.scaleMode = .AspectFit
-            
-        skView.presentScene(scene)
-      }
+        self.view.userInteractionEnabled = true
+    }
+  
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        deck.initCards()
+        self.view.bringSubviewToFront(ruleOverlay)
     }
 
     override func shouldAutorotate() -> Bool {
@@ -35,16 +37,18 @@ class GameViewController: UIViewController {
     }
 
     override func supportedInterfaceOrientations() -> Int {
-        
         return Int(UIInterfaceOrientationMask.Portrait.toRaw())
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
     }
 
     override func prefersStatusBarHidden() -> Bool {
         return false
+    }
+  
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        deck.drawCard()
     }
 }

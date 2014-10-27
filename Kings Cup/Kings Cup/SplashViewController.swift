@@ -31,7 +31,7 @@ class SplashViewController: UIViewController {
     
     func goToMainMenuAfterDelay(delay:Double) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
-            self.performSegueWithIdentifier("ShowMenu", sender: nil)
+            self.performSegueWithIdentifier("ShowGame", sender: nil)
         })
     }
     

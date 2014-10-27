@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ml8-cw-ZuL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -33,74 +32,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="logo" destination="sgA-0L-QOL" id="FaO-hy-WMW"/>
-                        <segue destination="PHi-We-Tyu" kind="presentation" identifier="ShowMenu" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="gVK-li-Fjn"/>
+                        <segue destination="LVB-YS-i5n" kind="presentation" identifier="ShowGame" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="dpi-TN-v8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEn-BZ-PHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-356" y="137"/>
-        </scene>
-        <!--Menu View Controller-->
-        <scene sceneID="TSa-Zw-tK6">
-            <objects>
-                <viewController id="PHi-We-Tyu" customClass="MenuViewController" customModule="Kings_Cup" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oyE-9E-ME8"/>
-                        <viewControllerLayoutGuide type="bottom" id="cgn-AR-uYM"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oSy-JE-8pj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuJ-A8-4tb">
-                                <rect key="frame" x="1" y="89" width="319" height="302"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Kings Kup Logo" translatesAutoresizingMaskIntoConstraints="NO" id="bd4-Ny-dNg">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yR-ct-azX" userLabel="Play">
-                                        <rect key="frame" x="182" y="214" width="80" height="80"/>
-                                        <state key="normal" image="RulesButtonSelected">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" image="RulesButton"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGO-K9-Zz7" userLabel="Rules">
-                                        <rect key="frame" x="58" y="214" width="80" height="80"/>
-                                        <state key="normal" image="PlayButtonSelected">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" image="PlayButton"/>
-                                        <connections>
-                                            <action selector="playButtonTapped" destination="PHi-We-Tyu" eventType="touchUpInside" id="2h9-Q3-WeO"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="uuJ-A8-4tb" secondAttribute="centerX" id="4KT-7q-tb6"/>
-                            <constraint firstAttribute="width" secondItem="uuJ-A8-4tb" secondAttribute="height" multiplier="160:151" id="5bU-yS-XbY"/>
-                            <constraint firstItem="uuJ-A8-4tb" firstAttribute="centerY" secondItem="oSy-JE-8pj" secondAttribute="centerY" id="BFk-gh-Qj1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uuJ-A8-4tb" secondAttribute="trailing" constant="-16" id="Tkd-FL-gOz"/>
-                            <constraint firstItem="uuJ-A8-4tb" firstAttribute="top" secondItem="oyE-9E-ME8" secondAttribute="bottom" constant="69" id="sJF-RO-UEG"/>
-                        </constraints>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="playButton" destination="UGO-K9-Zz7" id="pAb-ag-Bur"/>
-                        <outlet property="rulesButton" destination="7yR-ct-azX" id="zt8-30-HW2"/>
-                        <segue destination="LVB-YS-i5n" kind="presentation" identifier="ShowGame" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="h1l-KZ-Vb7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j6I-O8-KJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="69" y="137"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="CtS-rA-C9T">
@@ -110,25 +47,51 @@
                         <viewControllerLayoutGuide type="top" id="PCf-gQ-wO7"/>
                         <viewControllerLayoutGuide type="bottom" id="b3d-qh-BLL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bdc-N1-crn" customClass="SKView">
+                    <view key="view" contentMode="scaleToFill" id="bdc-N1-crn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tCu-Pn-Wxo" customClass="Deck" customModule="Kings_Cup" customModuleProvider="target">
+                                <rect key="frame" x="56" y="50" width="208" height="380"/>
+                            </imageView>
+                            <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYR-YW-TBb">
+                                <rect key="frame" x="0.0" y="170" width="320" height="140"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Rule Name" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4vc-mJ-eVP">
+                                <rect key="frame" x="0.0" y="223" width="320" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="0.99425287356321834" green="0.9885057471264368" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="hYR-YW-TBb" firstAttribute="top" secondItem="PCf-gQ-wO7" secondAttribute="bottom" constant="150" id="Dhu-qw-vN9"/>
+                            <constraint firstItem="tCu-Pn-Wxo" firstAttribute="centerX" secondItem="bdc-N1-crn" secondAttribute="centerX" id="Evs-0u-33p"/>
+                            <constraint firstItem="tCu-Pn-Wxo" firstAttribute="centerY" secondItem="hYR-YW-TBb" secondAttribute="centerY" id="UwD-SF-Uwb"/>
+                            <constraint firstItem="tCu-Pn-Wxo" firstAttribute="top" secondItem="PCf-gQ-wO7" secondAttribute="bottom" constant="30" id="Xdr-Kr-LfF"/>
+                            <constraint firstItem="tCu-Pn-Wxo" firstAttribute="centerY" secondItem="bdc-N1-crn" secondAttribute="centerY" id="Z3E-rc-5Cw"/>
+                            <constraint firstItem="hYR-YW-TBb" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leadingMargin" constant="-16" id="ZXd-Lm-cgx"/>
+                            <constraint firstItem="tCu-Pn-Wxo" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leadingMargin" constant="40" id="qCL-cY-1uA"/>
+                            <constraint firstItem="tCu-Pn-Wxo" firstAttribute="centerX" secondItem="hYR-YW-TBb" secondAttribute="centerX" id="sxN-gU-l7M"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="deck" destination="tCu-Pn-Wxo" id="iPp-73-bfu"/>
+                        <outlet property="ruleName" destination="4vc-mJ-eVP" id="x0B-BC-Ij5"/>
+                        <outlet property="ruleOverlay" destination="hYR-YW-TBb" id="1xg-Vn-G1G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="485" y="137"/>
+            <point key="canvasLocation" x="83" y="137"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Kings Kup Logo" width="139" height="145"/>
         <image name="Logo" width="1146" height="1095"/>
-        <image name="PlayButton" width="206" height="206"/>
-        <image name="PlayButtonSelected" width="206" height="206"/>
-        <image name="RulesButton" width="206" height="206"/>
-        <image name="RulesButtonSelected" width="206" height="206"/>
     </resources>
 </document>

@@ -12,43 +12,66 @@ import CoreData
 
 class RuleManager {
   
-    class var sharedInstance: RuleManager {
-        struct Static {
-            static var instance: RuleManager?
-            static var token: dispatch_once_t = 0
-            }
-            
-            dispatch_once(&Static.token) {
-              Static.instance = RuleManager()
-            }
-        
-        return Static.instance!
-    }
-  
-  
-    func saveRule(#rule:Rule) {
+    class func saveRule(#ruleName:NSString, ruleDescription:NSString, ruleRange:[Int]) {
       
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let managedContext = appDelegate.managedObjectContext!
-        
-        let entity = NSEntityDescription.entityForName("Rule", inManagedObjectContext: managedContext)
-        
-        let ruleManagedObject = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-
-        ruleManagedObject.setValue(rule.ruleName, forKey: "ruleName")
-        ruleManagedObject.setValue(rule.ruleDescription, forKey: "ruleDescription")
-        ruleManagedObject.setValue(rule.range, forKey: "range")
-      
-        var error:NSError?
-        if !managedContext.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
+    
+        if let managedObjectContext = appDelegate.managedObjectContext {
+          
+            let entity = NSEntityDescription.entityForName("Rule", inManagedObjectContext: managedObjectContext)
+            
+            let ruleManagedObject = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext)
+            
+            ruleManagedObject.setValue(ruleName, forKey: "ruleName")
+            ruleManagedObject.setValue(ruleDescription, forKey: "ruleDescription")
+            ruleManagedObject.setValue(ruleRange, forKey: "range")
+            
+            var error:NSError?
+            if !managedObjectContext.save(&error) {
+                println("Could not save \(error), \(error?.userInfo)")
+            }
+          
         }
+      
     }
   
-//    class func getRuleForValue(value:Int) -> Rule {
-//      
-//      
-//      
-//    }
+    class func getRuleForValue(value:Int) -> Rule {
+      
+        var rules = getRules()
+        var ruleForValue:Rule = Rule()
+      
+        for rule in rules {
+          
+            
+          
+        }
+      
+        return ruleForValue
+    }
+  
+    class func getRules() -> [Rule] {
+      
+        var rules = [Rule]()
+      
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName:"Rule")
+      
+        var error: NSError?
+        
+        let fetchedResults =
+        managedContext.executeFetchRequest(fetchRequest,
+          error: &error) as [Rule]?
+        
+        if let results = fetchedResults {
+          rules = results
+        } else {
+          println("Could not fetch \(error), \(error!.userInfo)")
+        }
+      
+        return rules
+    }
   
 }

@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		086DCB8419EE258E0033037A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086DCB8319EE258E0033037A /* SplashViewController.swift */; };
-		086DCB8619EE25A40033037A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086DCB8519EE25A40033037A /* MenuViewController.swift */; };
 		08B7430C19E0E06B00FE6788 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B7430B19E0E06B00FE6788 /* AppDelegate.swift */; };
-		08B7431019E0E06B00FE6788 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B7430F19E0E06B00FE6788 /* GameScene.swift */; };
 		08B7431219E0E06B00FE6788 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B7431119E0E06B00FE6788 /* GameViewController.swift */; };
 		08B7431519E0E06B00FE6788 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08B7431319E0E06B00FE6788 /* Main.storyboard */; };
 		08B7431719E0E06B00FE6788 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08B7431619E0E06B00FE6788 /* Images.xcassets */; };
@@ -36,11 +34,9 @@
 
 /* Begin PBXFileReference section */
 		086DCB8319EE258E0033037A /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		086DCB8519EE25A40033037A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		08B7430619E0E06B00FE6788 /* Kings Cup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kings Cup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08B7430A19E0E06B00FE6788 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08B7430B19E0E06B00FE6788 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		08B7430F19E0E06B00FE6788 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		08B7431119E0E06B00FE6788 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		08B7431419E0E06B00FE6788 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		08B7431619E0E06B00FE6788 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -79,7 +75,6 @@
 			children = (
 				086DCB8319EE258E0033037A /* SplashViewController.swift */,
 				08B7431119E0E06B00FE6788 /* GameViewController.swift */,
-				086DCB8519EE25A40033037A /* MenuViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -92,14 +87,6 @@
 				A2B6E2FC19F996DF006F2586 /* Model.xcdatamodeld */,
 			);
 			name = App;
-			sourceTree = "<group>";
-		};
-		086DCB8219EE253C0033037A /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				08B7430F19E0E06B00FE6788 /* GameScene.swift */,
-			);
-			name = Scenes;
 			sourceTree = "<group>";
 		};
 		08B742FD19E0E06B00FE6788 = {
@@ -124,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				086DCB8119EE25280033037A /* App */,
-				086DCB8219EE253C0033037A /* Scenes */,
 				086DCB8019EE25120033037A /* View Controllers */,
 				A26AB46619F164DF00EC04AE /* Classes */,
 				08B7430919E0E06B00FE6788 /* Supporting Files */,
@@ -136,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A26AB46B19F1A24700EC04AE /* Assets */,
+				A2B6E2AF19F7045F006F2586 /* Contants.swift */,
 				08B7430A19E0E06B00FE6788 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -163,7 +150,6 @@
 			children = (
 				A2B6E30119F99F80006F2586 /* Rule.swift */,
 				A26AB46719F166C600EC04AE /* Deck.swift */,
-				A2B6E2AF19F7045F006F2586 /* Contants.swift */,
 				A2B6E2FF19F998A3006F2586 /* RuleManager.swift */,
 			);
 			name = Classes;
@@ -282,10 +268,8 @@
 			files = (
 				A26AB46819F166C600EC04AE /* Deck.swift in Sources */,
 				A2B6E30219F99F80006F2586 /* Rule.swift in Sources */,
-				08B7431019E0E06B00FE6788 /* GameScene.swift in Sources */,
 				A2B6E2B019F7045F006F2586 /* Contants.swift in Sources */,
 				A2B6E2FE19F996DF006F2586 /* Model.xcdatamodeld in Sources */,
-				086DCB8619EE25A40033037A /* MenuViewController.swift in Sources */,
 				08B7431219E0E06B00FE6788 /* GameViewController.swift in Sources */,
 				A2B6E30019F998A3006F2586 /* RuleManager.swift in Sources */,
 				08B7430C19E0E06B00FE6788 /* AppDelegate.swift in Sources */,
