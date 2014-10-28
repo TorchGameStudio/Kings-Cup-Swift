@@ -20,6 +20,7 @@
 		A2B6E2FE19F996DF006F2586 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2B6E2FC19F996DF006F2586 /* Model.xcdatamodeld */; };
 		A2B6E30019F998A3006F2586 /* RuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B6E2FF19F998A3006F2586 /* RuleManager.swift */; };
 		A2B6E30219F99F80006F2586 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B6E30119F99F80006F2586 /* Rule.swift */; };
+		A2B6E30D1A002A13006F2586 /* DefaultRules.json in Resources */ = {isa = PBXBuildFile; fileRef = A2B6E30B1A002A13006F2586 /* DefaultRules.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		A2B6E2FD19F996DF006F2586 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		A2B6E2FF19F998A3006F2586 /* RuleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleManager.swift; sourceTree = "<group>"; };
 		A2B6E30119F99F80006F2586 /* Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		A2B6E30B1A002A13006F2586 /* DefaultRules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DefaultRules.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				A26AB46B19F1A24700EC04AE /* Assets */,
 				A2B6E2AF19F7045F006F2586 /* Contants.swift */,
 				08B7430A19E0E06B00FE6788 /* Info.plist */,
+				A2B6E30B1A002A13006F2586 /* DefaultRules.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08B7431719E0E06B00FE6788 /* Images.xcassets in Resources */,
+				A2B6E30D1A002A13006F2586 /* DefaultRules.json in Resources */,
 				A2B6E2E319F84E59006F2586 /* Deck in Resources */,
 				A2B6E2FB19F9769D006F2586 /* Cards in Resources */,
 				08B7431519E0E06B00FE6788 /* Main.storyboard in Resources */,

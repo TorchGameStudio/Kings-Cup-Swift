@@ -12,11 +12,13 @@ import SpriteKit
 
 class Deck :UIImageView {
   
-    ///--------------------------------------------------
-    ///
-    /// // MARK: - Variables
-    ///
-    ///--------------------------------------------------
+  
+///--------------------------------------------------
+///
+/// // MARK: - Variables
+///
+///--------------------------------------------------
+  
   
     var cards :[Int] = []
   
@@ -27,65 +29,31 @@ class Deck :UIImageView {
     var rulesOverlayView = UIView()
     var ruleNameLabel = UILabel()
   
-  //var cardFlipFinishedSelector = { (cardDrawn: CardDrawnBlock) in }
+    typealias CardDrawnBlock = Void -> ()
+    var cardDrawnBlock:CardDrawnBlock = {}
   
-    ///--------------------------------------------------
-    ///
-    /// // MARK: - Init Methods
-    ///
-    ///--------------------------------------------------
+  
+///--------------------------------------------------
+///
+/// // MARK: - Init Methods
+///
+///--------------------------------------------------
+  
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.userInteractionEnabled = true
-        //RuleManager.saveRule(ruleName: "THIS IS A TEST NAME", ruleDescription: "THIS IS A TEST DESCRIPTION", ruleRange: testRuleValues)
-        
-        var rules = RuleManager.getRules()
+  
     }
   
-    func initCards () {
-      
-        shuffle()
-        addNewCard()
-      
-    }
   
-//    func initRulesOverlay() {
-//      
-//        rulesOverlayView = UIView(frame: CGRect(x:screenSize.width/2 - rulesOverlaySize.width/2 - self.frame.origin.x,
-//                                                y: screenSize.height/2 - rulesOverlaySize.height/2 - self.frame.origin.y,
-//                                            width: rulesOverlaySize.width,
-//                                           height: rulesOverlaySize.height))
-//      
-//        rulesOverlayView.backgroundColor = UIColor.blackColor()
-//        rulesOverlayView.alpha = 0.0
-//      
-//        initRulesNameLabel()
-//      
-//        rulesOverlayView.addSubview(ruleNameLabel)
-//        self.addSubview(rulesOverlayView)
-//    }
-//  
-//    func initRulesNameLabel() {
-//      
-//        ruleNameLabel = UILabel(frame: CGRect(x: 0,
-//                                              y: 0,
-//                                          width: rulesOverlayView.frame.size.width,
-//                                         height: rulesOverlayView.frame.size.height))
-//      
-//        ruleNameLabel.text = "Rule name goes here"
-//        ruleNameLabel.textAlignment = NSTextAlignment.Center
-//        ruleNameLabel.font = UIFont.systemFontOfSize(ruleNameFontSize)
-//        ruleNameLabel.textColor = UIColor.whiteColor()
-//      
-//    }
+///--------------------------------------------------
+///
+/// // MARK: - Utility Methods
+///
+///--------------------------------------------------
   
-    ///--------------------------------------------------
-    ///
-    /// // MARK: - Utility Methods
-    ///
-    ///--------------------------------------------------
   
     func updateDeckBackground() {
         var deckImage:UIImage
@@ -112,6 +80,14 @@ class Deck :UIImageView {
         }
     }
   
+    func discardDrawnCard() {
+        cards.removeAtIndex(0)
+        
+        if cards.count == 0 {
+          shuffle()
+        }
+    }
+  
     func addNewCard() {
       
         updateDeckBackground()
@@ -134,11 +110,6 @@ class Deck :UIImageView {
       
         backCardView.image = UIImage(named: "Card")
         frontCardView.image = UIImage(named: "Cards/\(cards[0])")
-        cards.removeAtIndex(0)
-      
-        if cards.count == 0 {
-          shuffle()
-        }
     }
   
     func drawCard() {
@@ -168,52 +139,11 @@ class Deck :UIImageView {
   
     func flipCard() {
     
-        UIView.transitionFromView(self.backCardView, toView: self.frontCardView, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
-    }
-  
-//    func animateRulesOverlay() {
-//      
-//      let currentRulesOverlayAlpha = rulesOverlayView.alpha
-//      
-//      var targetAlpha:CGFloat
-//      
-//      if !self.cardDrawn {
-//        
-//          targetAlpha = rulesOverlayAlpha
-//          rulesOverlayView.alpha = 0
-//        
-//      } else {
-//        
-//          targetAlpha = 0
-//          rulesOverlayView.alpha = rulesOverlayAlpha
-//        
-//      }
-//      
-//      UIView.animateWithDuration(0.2, animations: {
-//        
-//          self.rulesOverlayView.alpha = targetAlpha
-//        
-//        }, completion: { finished in
-//          
-//            if self.cardDrawn {
-//              
-//                self.cardDrawn = false
-//                self.addNewCard()
-//              
-//            } else {
-//              
-//                self.cardDrawn = true
-//              
-//            }
-//          
-//      })
-//    
-//    }
-  
-    func animateContinueButton() {
-      
-      //
-      
+      UIView.transitionFromView(self.backCardView, toView: self.frontCardView, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: { finished in
+        
+          self.cardDrawnBlock()
+        
+      })
     }
   
 }

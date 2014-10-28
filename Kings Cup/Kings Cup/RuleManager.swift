@@ -35,18 +35,21 @@ class RuleManager {
       
     }
   
-    class func getRuleForValue(value:Int) -> Rule {
+    class func getRuleForValue(value:Int) -> Rule? {
       
         var rules = getRules()
-        var ruleForValue:Rule = Rule()
+        var ruleForValue:AnyObject?
       
         for rule in rules {
           
-            
+            let ruleRange = rule.range as [Int]
+            if NSArray(array: ruleRange).containsObject(value)  {
+              ruleForValue = rule as Rule
+            }
           
         }
       
-        return ruleForValue
+        return ruleForValue as Rule?
     }
   
     class func getRules() -> [Rule] {
@@ -71,7 +74,43 @@ class RuleManager {
           println("Could not fetch \(error), \(error!.userInfo)")
         }
       
+        let noRules = rules.count == 0
+        if(noRules) {
+          
+            configureDefaultRules()
+            rules = getRules()
+          
+        }
+      
         return rules
+    }
+  
+    class func configureDefaultRules() {
+      
+        if let path = NSBundle.mainBundle().pathForResource("DefaultRules", ofType: "json") {
+        
+            let jsonData = NSData.dataWithContentsOfFile(path, options: .DataReadingMappedIfSafe, error: nil)
+            let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error:nil) as NSDictionary
+        
+            var rules: NSArray = json["defaultRules"] as NSArray
+        
+        
+            var ruleIndex = cardsPerSuit
+            for rule in rules {
+              
+                var ruleRange = [Int]()
+                let ruleName = rule["name"] as NSString
+                let ruleDescription = rule["description"] as NSString
+              
+                ruleRange.append(ruleIndex + (cardsPerSuit * Suits.Spades.hashValue))
+                ruleRange.append(ruleIndex + (cardsPerSuit * Suits.Clubs.hashValue))
+                ruleRange.append(ruleIndex + (cardsPerSuit * Suits.Hearts.hashValue))
+                ruleRange.append(ruleIndex + (cardsPerSuit * Suits.Diamonds.hashValue))
+                
+                ruleIndex--
+                RuleManager.saveRule(ruleName: ruleName, ruleDescription: ruleDescription, ruleRange: ruleRange)
+            }
+        }
     }
   
 }
