@@ -54,17 +54,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tCu-Pn-Wxo" customClass="Deck" customModule="Kings_Cup" customModuleProvider="target">
                                 <rect key="frame" x="56" y="50" width="208" height="380"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYR-YW-TBb">
-                                <rect key="frame" x="0.0" y="170" width="320" height="140"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Rule Name" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vc-mJ-eVP">
-                                <rect key="frame" x="0.0" y="223" width="320" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tni-xD-Zqd">
                                 <rect key="frame" x="16" y="432" width="40" height="40"/>
                                 <state key="normal" image="RulesButton">
@@ -72,26 +61,28 @@
                                 </state>
                                 <state key="highlighted" image="RulesButtonSelected"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rule" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfA-zG-XPd" userLabel="Rule Label" customClass="UILabelWithMargin" customModule="Kings_Cup" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="170" width="320" height="140"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99425287356321834" green="0.9885057471264368" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="hYR-YW-TBb" firstAttribute="top" secondItem="PCf-gQ-wO7" secondAttribute="bottom" constant="150" id="Dhu-qw-vN9"/>
                             <constraint firstItem="tCu-Pn-Wxo" firstAttribute="centerX" secondItem="bdc-N1-crn" secondAttribute="centerX" id="Evs-0u-33p"/>
-                            <constraint firstItem="tCu-Pn-Wxo" firstAttribute="centerY" secondItem="hYR-YW-TBb" secondAttribute="centerY" id="UwD-SF-Uwb"/>
                             <constraint firstItem="tCu-Pn-Wxo" firstAttribute="top" secondItem="PCf-gQ-wO7" secondAttribute="bottom" constant="30" id="Xdr-Kr-LfF"/>
                             <constraint firstItem="tCu-Pn-Wxo" firstAttribute="centerY" secondItem="bdc-N1-crn" secondAttribute="centerY" id="Z3E-rc-5Cw"/>
-                            <constraint firstItem="hYR-YW-TBb" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leadingMargin" constant="-16" id="ZXd-Lm-cgx"/>
                             <constraint firstItem="tCu-Pn-Wxo" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leadingMargin" constant="40" id="qCL-cY-1uA"/>
-                            <constraint firstItem="tCu-Pn-Wxo" firstAttribute="centerX" secondItem="hYR-YW-TBb" secondAttribute="centerX" id="sxN-gU-l7M"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="deck" destination="tCu-Pn-Wxo" id="iPp-73-bfu"/>
                         <outlet property="ruleButton" destination="Tni-xD-Zqd" id="Dd7-hr-4QB"/>
-                        <outlet property="ruleName" destination="4vc-mJ-eVP" id="x0B-BC-Ij5"/>
-                        <outlet property="ruleOverlay" destination="hYR-YW-TBb" id="1xg-Vn-G1G"/>
+                        <outlet property="ruleLabel" destination="yfA-zG-XPd" id="gBW-NP-lKo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>

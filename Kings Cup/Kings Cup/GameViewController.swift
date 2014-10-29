@@ -20,10 +20,10 @@ class GameViewController: UIViewController {
   
   
     @IBOutlet var deck:Deck!
-    @IBOutlet var ruleOverlay:UIView!
-    @IBOutlet var ruleName:UITextView!
+    @IBOutlet var ruleLabel:UILabelWithMargin!
     @IBOutlet var ruleButton:UIView!
   
+    var ruleDescription:UITextView = UITextView()
   
 ///--------------------------------------------------
 ///
@@ -31,12 +31,11 @@ class GameViewController: UIViewController {
 ///
 ///--------------------------------------------------
   
-  
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         self.view.userInteractionEnabled = true
-        self.ruleOverlay.alpha = 0
-        self.ruleName.alpha = 0
+        initUI()
     }
   
     override func viewDidAppear(animated: Bool) {
@@ -47,11 +46,10 @@ class GameViewController: UIViewController {
         deck.cardDrawnBlock = {
           
             self.animateRuleName()
-            self.configureRuleText()
+            self.setRuleName()
+            self.setRuleDescription()
           
         }
-      
-        self.view.bringSubviewToFront(ruleOverlay)
     }
 
     override func shouldAutorotate() -> Bool {
@@ -72,9 +70,10 @@ class GameViewController: UIViewController {
   
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
       
-        var ruleDisplayed = ruleOverlay.alpha != 0
+        var ruleNameDisplayed = ruleLabel.alpha != 0
+        var ruleDescriptionDisplayed = ruleDescription.alpha != 0
       
-        if(!ruleDisplayed) {
+        if(!ruleNameDisplayed && !ruleDescriptionDisplayed) {
           
             deck.drawCard()
           
@@ -82,17 +81,18 @@ class GameViewController: UIViewController {
           
             let touch: AnyObject? = touches.anyObject()
             let location = touch?.locationInView(self.view)
-            let ruleTapped = CGRectContainsPoint(ruleOverlay.frame, location!)
+            let ruleTapped = (ruleNameDisplayed && CGRectContainsPoint(ruleLabel.frame, location!)) || (ruleDescriptionDisplayed && CGRectContainsPoint(ruleDescription.frame, location!))
           
             if ruleTapped {
               
-              
+                toggleRuleNameDescription()
               
             } else {
               
                 deck.discardDrawnCard()
                 deck.addNewCard()
                 animateRuleName()
+                ruleDescription.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
   
             }
           
@@ -106,57 +106,99 @@ class GameViewController: UIViewController {
 ///
 ///--------------------------------------------------
   
-    func configureRuleText() {
+  
+    func initUI() {
       
-        let drawnCardValue = deck.cards[0]
+        ruleLabel.alpha = 0
       
-        if let rule = RuleManager.getRuleForValue(drawnCardValue) {
-            ruleName.text = rule.ruleName
-        }
+        ruleDescription = UITextView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+        ruleDescription.backgroundColor = UIColor.blackColor()
+        ruleDescription.textColor = UIColor.whiteColor()
+        ruleDescription.font = UIFont.systemFontOfSize(17)
+        ruleDescription.userInteractionEnabled = false
+        ruleDescription.textAlignment = NSTextAlignment.Center
+        ruleDescription.alpha = 0
+        ruleDescription.contentHuggingPriorityForAxis(UILayoutConstraintAxis.Horizontal)
       
-        ruleName.textColor = UIColor.whiteColor()
-        ruleName.textAlignment = NSTextAlignment.Center
-        ruleName.font = UIFont.systemFontOfSize(18)
+        self.view.addSubview(ruleDescription)
       
     }
   
     func animateRuleName() {
       
-        let currentRulesOverlayAlpha = ruleOverlay.alpha
-      
-        var overlayTargetAlpha:CGFloat
-        var nameTargetAlpha:CGFloat
+        let currentRulesOverlayAlpha = ruleLabel.alpha
+        var ruleLabelTargetAlpha:CGFloat
       
         if currentRulesOverlayAlpha != rulesOverlayAlpha {
         
-            overlayTargetAlpha = rulesOverlayAlpha
-            nameTargetAlpha = 1
-            ruleOverlay.alpha = 0
-            ruleName.alpha = 0
+            ruleLabelTargetAlpha = rulesOverlayAlpha
+            ruleLabel.alpha = 0
         
         } else {
         
-            overlayTargetAlpha = 0
-            nameTargetAlpha = 0
-            ruleOverlay.alpha = rulesOverlayAlpha
-            ruleName.alpha = 1
+            ruleLabelTargetAlpha = 0
+            ruleLabel.alpha = rulesOverlayAlpha
         
         }
       
-        self.view.bringSubviewToFront(self.ruleName)
+        self.view.bringSubviewToFront(self.ruleLabel)
       
         UIView.animateWithDuration(0.2, animations: {
           
-            self.ruleOverlay.alpha = overlayTargetAlpha
-            self.ruleName.alpha = nameTargetAlpha
+            self.ruleLabel.alpha = ruleLabelTargetAlpha
           
         })
       
     }
   
-  
-    func animateRuleDescription() {
+    func toggleRuleNameDescription() {
       
+        var ruleNameShowing = ruleLabel.alpha != 0
+      
+        if ruleNameShowing {
+          
+            ruleLabel.alpha = 0
+            ruleDescription.alpha = rulesOverlayAlpha
+          
+          
+        } else {
+          
+            ruleLabel.alpha = rulesOverlayAlpha
+            ruleDescription.alpha = 0
+          
+        }
+      
+    }
+  
+    func setRuleName() {
+      
+        let drawnCardValue = deck.cards[0]
+        
+        if let rule = RuleManager.getRuleForValue(drawnCardValue) {
+          
+          ruleLabel.text = rule.ruleName
+          
+        }
+      
+    }
+  
+    func setRuleDescription() {
+      
+      let drawnCardValue = deck.cards[0]
+      
+      if let rule = RuleManager.getRuleForValue(drawnCardValue) {
+        
+        
+        
+          ruleDescription.text = "SOME REALLY LONG TEXT TO TEST OUT SOME STUFF AND FINALLY GET THIS SILLY CENTERING TO WORK PROPERLY"
+          ruleDescription.textContainer.size.height = screenSize.height
+
+          var topOffset = (screenSize.height - ruleDescription.contentSize.height)/2
+          topOffset = topOffset < 0.0 ? 0.0 : topOffset
+          ruleDescription.textContainerInset.top = topOffset
+          ruleDescription.textContainer.size.height += topOffset
+        
+      }
       
     }
   

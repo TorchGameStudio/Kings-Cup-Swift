@@ -16,14 +16,13 @@ enum Suits {
 }
 
 let screenSize = UIScreen.mainScreen().bounds.size
-let cardSize = CGSize(width: screenSize.width/1.8, height: screenSize.height/1.8)
+let textMargins:CGFloat = 20
 
 let deckImages = 6
 let deckSize = 52
 let cardsPerSuit = 13
 
-let rulesOverlaySize = CGSize(width: screenSize.width, height: cardSize.height/2)
-let rulesOverlayAlpha:CGFloat = 0.75
+let rulesOverlayAlpha:CGFloat = 0.85
 let ruleNameFontSize:CGFloat = 15
 
 // NOTIFICATIONS
@@ -57,5 +56,17 @@ extension UIView {
     frame.origin.y = y
     self.frame = frame
   }
-  
+
+}
+
+
+
+class UILabelWithMargin : UILabel {
+ 
+  override func drawTextInRect(rect: CGRect) {
+    
+    var insets:UIEdgeInsets = UIEdgeInsets(top: textMargins, left: textMargins, bottom: textMargins, right: textMargins)
+    super.drawTextInRect(UIEdgeInsetsInsetRect(rect, insets))
+    
+  }
 }
