@@ -15,7 +15,24 @@ class RuleManager {
     class func saveRule(#ruleName:NSString, ruleDescription:NSString, ruleRange:[Int]) {
       
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-    
+      
+        for ruleValue in ruleRange {
+          
+            if let rule = RuleManager.getRuleForValue(ruleValue)
+            {
+                var ruleRange = rule.range as [Int]
+                ruleRange.removeObject(ruleValue)
+                rule.range = ruleRange
+            }
+          
+            if let rule = RuleManager.getRuleForValue(ruleValue)
+            {
+              var a = rule.ruleDescription
+              var v = ""
+          }
+          
+        }
+      
         if let managedObjectContext = appDelegate.managedObjectContext {
           
             let entity = NSEntityDescription.entityForName("Rule", inManagedObjectContext: managedObjectContext)
@@ -59,7 +76,7 @@ class RuleManager {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         
         let managedContext = appDelegate.managedObjectContext!
-        
+      
         let fetchRequest = NSFetchRequest(entityName:"Rule")
       
         var error: NSError?
@@ -72,14 +89,6 @@ class RuleManager {
           rules = results
         } else {
           println("Could not fetch \(error), \(error!.userInfo)")
-        }
-      
-        let noRules = rules.count == 0
-        if(noRules) {
-          
-            configureDefaultRules()
-            rules = getRules()
-          
         }
       
         return rules

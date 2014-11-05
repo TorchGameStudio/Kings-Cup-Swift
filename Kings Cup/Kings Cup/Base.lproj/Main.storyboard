@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ml8-cw-ZuL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -60,6 +60,9 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" image="RulesButtonSelected"/>
+                                <connections>
+                                    <action selector="rulesButtonTapped:" destination="LVB-YS-i5n" eventType="touchUpInside" id="ih6-Nr-XOO"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rule" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfA-zG-XPd" userLabel="Rule Label" customClass="UILabelWithMargin" customModule="Kings_Cup" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="170" width="320" height="140"/>
@@ -89,10 +92,143 @@
             </objects>
             <point key="canvasLocation" x="83" y="137"/>
         </scene>
+        <!--Rule List View Controller-->
+        <scene sceneID="bxs-Ci-s00">
+            <objects>
+                <viewController storyboardIdentifier="RuleListViewController" id="ZFy-Q1-hoe" customClass="RuleListViewController" customModule="Kings_Cup" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F2R-Is-7FW"/>
+                        <viewControllerLayoutGuide type="bottom" id="944-PI-2Ht"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4aE-vu-4UX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4C-ca-G41" userLabel="View Rules">
+                                <rect key="frame" x="16" y="432" width="40" height="40"/>
+                                <state key="normal" image="RulesButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="RulesButtonSelected"/>
+                                <connections>
+                                    <action selector="ruleButtonTapped:" destination="ZFy-Q1-hoe" eventType="touchUpInside" id="PWT-FO-fDE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUk-4N-i95" userLabel="New Rule">
+                                <rect key="frame" x="140" y="432" width="40" height="40"/>
+                                <state key="normal" image="NewRuleButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="NewRuleButtonSelected"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hai-WY-2vk" userLabel="Load Default Rules">
+                                <rect key="frame" x="264" y="432" width="40" height="40"/>
+                                <state key="normal" image="DefaultButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="DefaultButtonSelected"/>
+                                <connections>
+                                    <action selector="defaultButtonTapped:" destination="ZFy-Q1-hoe" eventType="touchUpInside" id="lRb-nx-4e6"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cVM-KV-J4K">
+                                <rect key="frame" x="-1" y="22" width="322" height="399"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZFy-Q1-hoe" id="PrO-ch-ljO"/>
+                                    <outlet property="delegate" destination="ZFy-Q1-hoe" id="6Sm-9x-mH7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="cVM-KV-J4K" id="OkD-GR-05I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yQK-TK-H0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-356" y="708"/>
+        </scene>
+        <!--Edit Rule View Controller-->
+        <scene sceneID="qsd-Qa-5Qs">
+            <objects>
+                <viewController storyboardIdentifier="EditRuleViewController" id="cy2-7V-wUh" customClass="EditRuleViewController" customModule="Kings_Cup" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MNf-Qb-Pcz"/>
+                        <viewControllerLayoutGuide type="bottom" id="8qV-qK-uD3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vFi-LI-hVg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Rule Description" translatesAutoresizingMaskIntoConstraints="NO" id="OuP-t3-Ghg" userLabel="Description">
+                                <rect key="frame" x="16" y="116" width="288" height="304"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Rule Name" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0v3-EQ-dqZ" userLabel="Name">
+                                <rect key="frame" x="16" y="56" width="288" height="52"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Title" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fe6-tW-8ss" userLabel="Header">
+                                <rect key="frame" x="0.0" y="25" width="320" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcO-uJ-NDK" userLabel="Accept">
+                                <rect key="frame" x="102" y="432" width="40" height="40"/>
+                                <state key="normal" title="Button" image="acceptButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="acceptButtonSelected"/>
+                                <connections>
+                                    <action selector="acceptButtonTapped:" destination="cy2-7V-wUh" eventType="touchUpInside" id="og0-1x-iWb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Qd-IU-qiD" userLabel="Cancel">
+                                <rect key="frame" x="173" y="432" width="40" height="40"/>
+                                <state key="normal" image="cancelButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="cancelButtonSelected"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="cy2-7V-wUh" eventType="touchUpInside" id="pYb-QD-Vul"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="header" destination="fe6-tW-8ss" id="Wq7-Rf-GAC"/>
+                        <outlet property="ruleDescription" destination="OuP-t3-Ghg" id="ZdN-Ya-8z8"/>
+                        <outlet property="ruleName" destination="0v3-EQ-dqZ" id="qv6-ud-hGM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YnQ-yG-8bc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="83" y="708"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="DefaultButton" width="206" height="206"/>
+        <image name="DefaultButtonSelected" width="206" height="206"/>
         <image name="Logo" width="1146" height="1095"/>
+        <image name="NewRuleButton" width="206" height="206"/>
+        <image name="NewRuleButtonSelected" width="206" height="206"/>
         <image name="RulesButton" width="206" height="206"/>
         <image name="RulesButtonSelected" width="206" height="206"/>
+        <image name="acceptButton" width="206" height="206"/>
+        <image name="acceptButtonSelected" width="206" height="206"/>
+        <image name="cancelButton" width="206" height="206"/>
+        <image name="cancelButtonSelected" width="206" height="206"/>
     </resources>
 </document>

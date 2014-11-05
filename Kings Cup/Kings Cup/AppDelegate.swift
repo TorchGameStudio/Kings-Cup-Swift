@@ -17,6 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+      
+        let noRules = RuleManager.getRules().count == 0
+        if(noRules) {
+          
+          RuleManager.configureDefaultRules()
+          
+        }
+      
         return true
     }
 

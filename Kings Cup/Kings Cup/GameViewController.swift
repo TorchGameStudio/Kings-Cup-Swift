@@ -7,21 +7,33 @@
 //
 
 import UIKit
-import SpriteKit
 
 class GameViewController: UIViewController {
   
+///--------------------------------------------------
+///
+/// // MARK: - Interface Elements
+///
+///--------------------------------------------------
+  
+    @IBOutlet var deck:Deck!
+    @IBOutlet var ruleLabel:UILabelWithMargin!
+    @IBOutlet var ruleButton:UIView!
+  
+    @IBAction func rulesButtonTapped(AnyObject) {
+      
+        var storyboard = self.storyboard
+        var ruleListViewController = storyboard?.instantiateViewControllerWithIdentifier("RuleListViewController") as RuleListViewController
+        addChildViewController(ruleListViewController)
+        view.addSubview(ruleListViewController.view)
+      
+    }
   
 ///--------------------------------------------------
 ///
 /// // MARK: - Variables
 ///
 ///--------------------------------------------------
-  
-  
-    @IBOutlet var deck:Deck!
-    @IBOutlet var ruleLabel:UILabelWithMargin!
-    @IBOutlet var ruleButton:UIView!
   
     var ruleDescription:UITextView = UITextView()
   
@@ -35,7 +47,8 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
       
         self.view.userInteractionEnabled = true
-        initUI()
+        ruleLabel.alpha = 0
+        initRuleDescriptionView()
     }
   
     override func viewDidAppear(animated: Bool) {
@@ -46,8 +59,7 @@ class GameViewController: UIViewController {
         deck.cardDrawnBlock = {
           
             self.animateRuleName()
-            self.setRuleName()
-            self.setRuleDescription()
+            self.setRuleDescriptionTextPosition()
           
         }
     }
@@ -70,12 +82,22 @@ class GameViewController: UIViewController {
   
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
       
+        var rulesListShowing = self.childViewControllers.count > 0
+      
+        if rulesListShowing {
+          
+          return
+          
+        }
+      
         var ruleNameDisplayed = ruleLabel.alpha != 0
         var ruleDescriptionDisplayed = ruleDescription.alpha != 0
       
         if(!ruleNameDisplayed && !ruleDescriptionDisplayed) {
           
             deck.drawCard()
+            self.setRuleName()
+            self.setRuleDescription()
           
         } else {
           
@@ -92,8 +114,8 @@ class GameViewController: UIViewController {
                 deck.discardDrawnCard()
                 deck.addNewCard()
                 animateRuleName()
-                ruleDescription.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-  
+                resetRuleDescriptionContent()
+              
             }
           
         }
@@ -107,19 +129,18 @@ class GameViewController: UIViewController {
 ///--------------------------------------------------
   
   
-    func initUI() {
+    func initRuleDescriptionView() {
       
-        ruleLabel.alpha = 0
-      
-        ruleDescription = UITextView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+        ruleDescription.removeFromSuperview()
+        var textViewFrame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
+        ruleDescription = UITextView(frame: textViewFrame)
         ruleDescription.backgroundColor = UIColor.blackColor()
         ruleDescription.textColor = UIColor.whiteColor()
         ruleDescription.font = UIFont.systemFontOfSize(17)
         ruleDescription.userInteractionEnabled = false
         ruleDescription.textAlignment = NSTextAlignment.Center
         ruleDescription.alpha = 0
-        ruleDescription.contentHuggingPriorityForAxis(UILayoutConstraintAxis.Horizontal)
-      
+        resetRuleDescriptionContent()
         self.view.addSubview(ruleDescription)
       
     }
@@ -188,19 +209,27 @@ class GameViewController: UIViewController {
       
       if let rule = RuleManager.getRuleForValue(drawnCardValue) {
         
-        
-        
-          ruleDescription.text = "SOME REALLY LONG TEXT TO TEST OUT SOME STUFF AND FINALLY GET THIS SILLY CENTERING TO WORK PROPERLY"
-          ruleDescription.textContainer.size.height = screenSize.height
-
-          var topOffset = (screenSize.height - ruleDescription.contentSize.height)/2
-          topOffset = topOffset < 0.0 ? 0.0 : topOffset
-          ruleDescription.textContainerInset.top = topOffset
-          ruleDescription.textContainer.size.height += topOffset
+          ruleDescription.text = rule.ruleDescription
         
       }
       
     }
   
+    func setRuleDescriptionTextPosition() {
+        
+        var topOffset = ruleDescription.bounds.height/2 - ruleDescription.contentSize.height/2
+        topOffset = topOffset < 0.0 ? 0.0 : topOffset
+        
+        ruleDescription.textContainerInset.top = screenSize.height/2 - ruleDescription.contentSize.height/2
+        ruleDescription.textContainer.size.height = screenSize.height/2 + ruleDescription.contentSize.height/2
+      
+    }
+  
+    func resetRuleDescriptionContent() {
+      
+      ruleDescription.textContainerInset = UIEdgeInsets(top: 0, left: textMargins, bottom: 0, right: textMargins)
+      ruleDescription.textContainer.size.height = ruleDescription.contentSize.height
+      
+    }
   
 }

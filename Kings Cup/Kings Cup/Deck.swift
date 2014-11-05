@@ -139,11 +139,60 @@ class Deck :UIImageView {
   
     func flipCard() {
     
-      UIView.transitionFromView(self.backCardView, toView: self.frontCardView, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: { finished in
+        UIView.transitionFromView(self.backCardView, toView: self.frontCardView, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: { finished in
+          
+            self.cardDrawnBlock()
+          
+        })
+    }
+  
+    class func suitWithValueForCardValue(value:Int) ->NSString {
+      
+        //♥ ♦ ♣ ♠
         
-          self.cardDrawnBlock()
+        var suit = (value-1) / cardsPerSuit
+        var cardValueAndSuit = ""
         
-      })
+        switch suit {
+        case Suits.Spades.hashValue:
+          cardValueAndSuit += "♠"
+          break
+        case Suits.Clubs.hashValue:
+          cardValueAndSuit += "♣"
+          break
+        case Suits.Hearts.hashValue:
+          cardValueAndSuit += "♥"
+          break
+        case Suits.Diamonds.hashValue:
+          cardValueAndSuit += "♦"
+          break
+        default:
+          break
+        }
+        
+        var cardValue = value % cardsPerSuit
+        
+        switch cardValue {
+        case 0:
+          cardValueAndSuit += "K"
+          break
+        case 1:
+          cardValueAndSuit += "A"
+          break
+        case 11:
+          cardValueAndSuit += "J"
+          break
+        case 12:
+          cardValueAndSuit += "Q"
+          break
+        default:
+          cardValueAndSuit += "\(cardValue)"
+          
+        }
+        
+        
+        return cardValueAndSuit
+      
     }
   
 }

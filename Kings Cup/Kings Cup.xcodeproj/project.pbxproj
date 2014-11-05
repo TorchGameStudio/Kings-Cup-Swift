@@ -14,6 +14,10 @@
 		08B7431719E0E06B00FE6788 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08B7431619E0E06B00FE6788 /* Images.xcassets */; };
 		08B7432619E0E06B00FE6788 /* Kings_CupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B7432519E0E06B00FE6788 /* Kings_CupTests.swift */; };
 		A26AB46819F166C600EC04AE /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AB46719F166C600EC04AE /* Deck.swift */; };
+		A2915DB71A029464003033A9 /* RuleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2915DB61A029464003033A9 /* RuleListViewController.swift */; };
+		A2915DBA1A02A0AF003033A9 /* RuleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2915DB91A02A0AF003033A9 /* RuleTableViewCell.swift */; };
+		A2915DBC1A02A0BE003033A9 /* RuleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2915DBB1A02A0BE003033A9 /* RuleTableViewCell.xib */; };
+		A2915DBE1A02CA8A003033A9 /* EditRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2915DBD1A02CA8A003033A9 /* EditRuleViewController.swift */; };
 		A2B6E2B019F7045F006F2586 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B6E2AF19F7045F006F2586 /* Contants.swift */; };
 		A2B6E2E319F84E59006F2586 /* Deck in Resources */ = {isa = PBXBuildFile; fileRef = A2B6E2E219F84E59006F2586 /* Deck */; };
 		A2B6E2FB19F9769D006F2586 /* Cards in Resources */ = {isa = PBXBuildFile; fileRef = A2B6E2FA19F9769D006F2586 /* Cards */; };
@@ -45,6 +49,10 @@
 		08B7432419E0E06B00FE6788 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08B7432519E0E06B00FE6788 /* Kings_CupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kings_CupTests.swift; sourceTree = "<group>"; };
 		A26AB46719F166C600EC04AE /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		A2915DB61A029464003033A9 /* RuleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleListViewController.swift; sourceTree = "<group>"; };
+		A2915DB91A02A0AF003033A9 /* RuleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleTableViewCell.swift; sourceTree = "<group>"; };
+		A2915DBB1A02A0BE003033A9 /* RuleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RuleTableViewCell.xib; sourceTree = "<group>"; };
+		A2915DBD1A02CA8A003033A9 /* EditRuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRuleViewController.swift; sourceTree = "<group>"; };
 		A2B6E2AF19F7045F006F2586 /* Contants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
 		A2B6E2E219F84E59006F2586 /* Deck */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Deck; sourceTree = "<group>"; };
 		A2B6E2FA19F9769D006F2586 /* Cards */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Cards; sourceTree = "<group>"; };
@@ -77,6 +85,8 @@
 			children = (
 				086DCB8319EE258E0033037A /* SplashViewController.swift */,
 				08B7431119E0E06B00FE6788 /* GameViewController.swift */,
+				A2915DB61A029464003033A9 /* RuleListViewController.swift */,
+				A2915DBD1A02CA8A003033A9 /* EditRuleViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -114,6 +124,7 @@
 			children = (
 				086DCB8119EE25280033037A /* App */,
 				086DCB8019EE25120033037A /* View Controllers */,
+				A2915DB81A02A039003033A9 /* Views */,
 				A26AB46619F164DF00EC04AE /* Classes */,
 				08B7430919E0E06B00FE6788 /* Supporting Files */,
 			);
@@ -166,6 +177,15 @@
 				08B7431619E0E06B00FE6788 /* Images.xcassets */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		A2915DB81A02A039003033A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2915DB91A02A0AF003033A9 /* RuleTableViewCell.swift */,
+				A2915DBB1A02A0BE003033A9 /* RuleTableViewCell.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +273,7 @@
 				A2B6E2E319F84E59006F2586 /* Deck in Resources */,
 				A2B6E2FB19F9769D006F2586 /* Cards in Resources */,
 				08B7431519E0E06B00FE6788 /* Main.storyboard in Resources */,
+				A2915DBC1A02A0BE003033A9 /* RuleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +295,10 @@
 				A2B6E30219F99F80006F2586 /* Rule.swift in Sources */,
 				A2B6E2B019F7045F006F2586 /* Contants.swift in Sources */,
 				A2B6E2FE19F996DF006F2586 /* Model.xcdatamodeld in Sources */,
+				A2915DB71A029464003033A9 /* RuleListViewController.swift in Sources */,
+				A2915DBA1A02A0AF003033A9 /* RuleTableViewCell.swift in Sources */,
 				08B7431219E0E06B00FE6788 /* GameViewController.swift in Sources */,
+				A2915DBE1A02CA8A003033A9 /* EditRuleViewController.swift in Sources */,
 				A2B6E30019F998A3006F2586 /* RuleManager.swift in Sources */,
 				08B7430C19E0E06B00FE6788 /* AppDelegate.swift in Sources */,
 				086DCB8419EE258E0033037A /* SplashViewController.swift in Sources */,
