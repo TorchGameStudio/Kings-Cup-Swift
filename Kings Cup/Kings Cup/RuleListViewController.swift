@@ -52,7 +52,7 @@ class RuleListViewController : UIViewController, UITableViewDelegate, UITableVie
     
     override func supportedInterfaceOrientations() -> Int {
       
-        return Int(UIInterfaceOrientationMask.Portrait.toRaw())
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
     override func didReceiveMemoryWarning() {

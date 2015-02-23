@@ -11,7 +11,6 @@ import UIKit
 import CoreData
 
 class RuleManager {
-  
     class func saveRule(#ruleName:NSString, ruleDescription:NSString, ruleRange:[Int]) {
       
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -53,7 +52,7 @@ class RuleManager {
     }
   
     class func getRuleForValue(value:Int) -> Rule? {
-      
+  
         var rules = getRules()
         var ruleForValue:AnyObject?
       
@@ -97,9 +96,9 @@ class RuleManager {
     class func configureDefaultRules() {
       
         if let path = NSBundle.mainBundle().pathForResource("DefaultRules", ofType: "json") {
-        
-            let jsonData = NSData.dataWithContentsOfFile(path, options: .DataReadingMappedIfSafe, error: nil)
-            let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error:nil) as NSDictionary
+          
+            let jsonData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil);
+            let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error:nil) as NSDictionary
         
             var rules: NSArray = json["defaultRules"] as NSArray
         

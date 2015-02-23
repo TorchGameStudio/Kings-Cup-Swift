@@ -61,7 +61,7 @@ class Deck :UIImageView {
         do {
           
             let randomNumber = arc4random_uniform(UInt32(deckImages - 1))
-            deckImage = UIImage(named: "Deck/Deck\(randomNumber + 1)")
+            deckImage = UIImage(named: "Deck/Deck\(randomNumber + 1)")!
 
         } while deckImage == self.image
       
