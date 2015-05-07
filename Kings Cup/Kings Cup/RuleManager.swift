@@ -98,7 +98,7 @@ class RuleManager {
         if let path = NSBundle.mainBundle().pathForResource("DefaultRules", ofType: "json") {
           
             let jsonData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil);
-            let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error:nil) as NSDictionary
+            let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error:nil) as NSDictionary
         
             var rules: NSArray = json["defaultRules"] as NSArray
         

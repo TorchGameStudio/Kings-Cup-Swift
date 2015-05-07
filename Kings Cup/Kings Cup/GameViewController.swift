@@ -36,6 +36,7 @@ class GameViewController: UIViewController {
 ///--------------------------------------------------
   
     var ruleDescription:UITextView = UITextView()
+    var ruleShowing:Bool = false;
   
 ///--------------------------------------------------
 ///
@@ -69,7 +70,7 @@ class GameViewController: UIViewController {
     }
 
     override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+        return Int(UIInterfaceOrientationMask.Portrait.toRaw())
     }
 
     override func didReceiveMemoryWarning() {
@@ -150,16 +151,18 @@ class GameViewController: UIViewController {
         let currentRulesOverlayAlpha = ruleLabel.alpha
         var ruleLabelTargetAlpha:CGFloat
       
-        if currentRulesOverlayAlpha != rulesOverlayAlpha {
+        if !ruleShowing {
         
             ruleLabelTargetAlpha = rulesOverlayAlpha
             ruleLabel.alpha = 0
+            ruleShowing = true;
         
         } else {
         
             ruleLabelTargetAlpha = 0
             ruleLabel.alpha = rulesOverlayAlpha
-        
+            ruleShowing = false
+            
         }
       
         self.view.bringSubviewToFront(self.ruleLabel)

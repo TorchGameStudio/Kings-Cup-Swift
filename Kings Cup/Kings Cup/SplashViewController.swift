@@ -40,7 +40,7 @@ class SplashViewController: UIViewController {
     
     override func supportedInterfaceOrientations() -> Int {
         
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+        return Int(UIInterfaceOrientationMask.Portrait.toRaw())
     }
     
     override func didReceiveMemoryWarning() {
